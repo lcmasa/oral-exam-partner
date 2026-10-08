@@ -283,7 +283,7 @@ export function LessonDesk() {
     primaryLabel = "Start again";
     primaryAction = () => begin(practiceSlots());
   } else if (state.phase === "playing") {
-    primaryLabel = playFailed ? "Hear it again" : "Playing the question";
+    primaryLabel = playFailed ? "Play the question again" : "Playing the question";
     primaryAction = replayQuestion;
   } else if (state.phase === "model") {
     primaryLabel = playFailed ? "Play the model answer" : "Playing the model answer";
@@ -292,7 +292,7 @@ export function LessonDesk() {
     primaryLabel = "Next question";
     primaryAction = goNext;
   } else if (isErrorPhase(state.phase)) {
-    primaryLabel = "Hear it again";
+    primaryLabel = "Play the question again";
     primaryAction = replayQuestion;
   }
 
@@ -306,7 +306,8 @@ export function LessonDesk() {
     isErrorPhase(state.phase);
   const showRestart = state.phase !== "idle" && !finished && state.phase !== "done";
   const showHearModel = state.phase === "review";
-  const showPlayAgain = showPlayQuestionAgain(state, audioBusy);
+  const primaryReplaysQuestion = showPrimary && primaryLabel === "Play the question again";
+  const showPlayAgain = showPlayQuestionAgain(state, audioBusy) && !primaryReplaysQuestion;
 
   return (
     <section
@@ -412,7 +413,7 @@ export function LessonDesk() {
         ) : null}
         {showHearModel ? (
           <Button type="button" size="xl" variant="outline" onClick={replayModel}>
-            Hear it again
+            Play the model answer again
           </Button>
         ) : null}
         {showRestart ? (
