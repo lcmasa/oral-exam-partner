@@ -86,6 +86,12 @@ export function shouldOpenMic(state: LessonState): boolean {
   return state.phase === "listening" && state.micOpen;
 }
 
+export function showPlayQuestionAgain(state: LessonState, audioPlaying = false): boolean {
+  if (audioPlaying || state.phase === "idle" || state.order.length === 0) return false;
+  if (state.phase === "listening") return true;
+  return state.transcript.length > 0;
+}
+
 function playingAt(state: LessonState, index: number): LessonState {
   return {
     ...state,
@@ -136,8 +142,12 @@ export function reduce(state: LessonState, event: LessonEvent): LessonState {
       return { ...state, phase: "model", micOpen: false };
     }
     case "replay-question": {
-      if (state.order.length === 0) return state;
-      return playingAt(state, state.index);
+      if (state.order.length === 0 || state.phase === "idle") return state;
+      return {
+        ...state,
+        phase: "playing",
+        micOpen: false,
+      };
     }
     case "next-question": {
       if (!readyForNext(state)) return state;

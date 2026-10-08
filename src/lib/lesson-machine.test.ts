@@ -5,6 +5,7 @@ import {
   readyForNext,
   reduce,
   shouldOpenMic,
+  showPlayQuestionAgain,
   shuffleQuestions,
   type PracticeSlot,
 } from "./lesson-machine.ts";
@@ -82,6 +83,30 @@ test("errors close the mic and a late error does not erase an answer", () => {
   assert.equal(reduce(state, { type: "speech-unavailable" }).phase, "speech-unavailable");
   assert.equal(reduce(state, { type: "recognition-error" }).phase, "recognition-error");
   assert.equal(reduce(state, { type: "no-speech" }).phase, "no-speech");
+});
+
+test("replaying the question keeps the answer and does not move on", () => {
+  let state = reduce(initialState, { type: "start", order });
+  state = reduce(state, { type: "playback-ended" });
+  assert.equal(showPlayQuestionAgain(state), true);
+  state = reduce(state, { type: "answer", transcript: "がくせいです" });
+  state = reduce(state, { type: "skip-model" });
+  assert.equal(showPlayQuestionAgain(state), true);
+  assert.equal(showPlayQuestionAgain(state, true), false);
+  const replayed = reduce(state, { type: "replay-question" });
+  assert.equal(replayed.phase, "playing");
+  assert.equal(replayed.micOpen, false);
+  assert.equal(replayed.transcript, "がくせいです");
+  assert.equal(replayed.index, 0);
+  assert.equal(shouldOpenMic(replayed), false);
+  assert.equal(showPlayQuestionAgain(replayed, true), false);
+  const listening = reduce(replayed, { type: "playback-ended" });
+  assert.equal(listening.phase, "listening");
+  assert.equal(listening.micOpen, true);
+  assert.equal(listening.transcript, "がくせいです");
+  assert.equal(listening.index, 0);
+  assert.equal(readyForNext(listening), false);
+  assert.notEqual(reduce(listening, { type: "playback-ended" }).phase, "review");
 });
 
 test("shuffle keeps every id and start does not reorder", () => {

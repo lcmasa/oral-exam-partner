@@ -13,6 +13,7 @@ import {
   isPracticeFinished,
   readyForNext,
   reduce,
+  showPlayQuestionAgain,
   shuffleQuestions,
   type LessonEvent,
   type LessonState,
@@ -176,6 +177,7 @@ export function LessonDesk() {
       if (interim) setHearing(interim);
       if (!finalText) return;
       setHearing("");
+      setConvertFailed(false);
       send({ type: "answer", transcript: finalText }, true);
       void settle(finalText);
     };
@@ -227,6 +229,7 @@ export function LessonDesk() {
 
   function replayQuestion() {
     setHearing("");
+    judgedRef.current = null;
     closeMic();
     send({ type: "replay-question" }, true);
     const item = itemById(stateRef.current.order[stateRef.current.index]?.id ?? "");
@@ -303,6 +306,7 @@ export function LessonDesk() {
     isErrorPhase(state.phase);
   const showRestart = state.phase !== "idle" && !finished && state.phase !== "done";
   const showHearModel = state.phase === "review";
+  const showPlayAgain = showPlayQuestionAgain(state, audioBusy);
 
   return (
     <section
@@ -399,6 +403,11 @@ export function LessonDesk() {
         {showPrimary ? (
           <Button type="button" size="xl" disabled={audioBusy} onClick={primaryAction}>
             {primaryLabel}
+          </Button>
+        ) : null}
+        {showPlayAgain ? (
+          <Button type="button" size="xl" variant="outline" onClick={replayQuestion}>
+            Play the question again
           </Button>
         ) : null}
         {showHearModel ? (
