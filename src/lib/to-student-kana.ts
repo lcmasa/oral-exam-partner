@@ -67,7 +67,9 @@ async function loadEngine(): Promise<Engine> {
 }
 
 function dictionaryPath(): string {
-  return typeof window === "undefined" ? "node_modules/kuromoji/dict" : "/kuromoji-dict";
+  if (typeof window === "undefined") return "node_modules/kuromoji/dict";
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  return `${base}/kuromoji-dict`;
 }
 
 export function loadStudentKanaTokenizer(): Promise<Tokenizer> {

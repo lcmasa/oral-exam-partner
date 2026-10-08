@@ -5,6 +5,7 @@ import { flushSync } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { kanaAnswersMatch } from "@/lib/answer-match";
 import { itemById, practiceItems, practiceSlots } from "@/lib/exam-items";
+import { publicUrl } from "@/lib/public-url";
 import {
   PHASE_LABEL,
   hasNextQuestion,
@@ -80,7 +81,7 @@ export function LessonDesk() {
     if (existing) return existing;
     const el = document.createElement("audio");
     el.preload = "auto";
-    el.src = src;
+    el.src = publicUrl(src);
     el.dataset.clip = src;
     (audioHostRef.current ?? document.body).appendChild(el);
     poolRef.current.set(src, el);
