@@ -1,0 +1,355 @@
+export type ExamItem = {
+  id: string;
+  slide: number;
+  question: string;
+  questionSrc: string;
+  modelAnswer: string | null;
+  modelSrc: string | null;
+};
+
+export const EXAM_ITEMS: ExamItem[] = [
+  {
+    id: "slide-02",
+    slide: 2,
+    question: "[おはようございます]。おなまえは？",
+    questionSrc: "/exam/slide-02-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-03",
+    slide: 3,
+    question: "なんさいですか？",
+    questionSrc: "/exam/slide-03-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-04",
+    slide: 4,
+    question: "アメリカじんですか？",
+    questionSrc: "/exam/slide-04-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-05",
+    slide: 5,
+    question: "それは　なんですか？",
+    questionSrc: "/exam/slide-05-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-06",
+    slide: 6,
+    question: "うちは　どちらですか？",
+    questionSrc: "/exam/slide-06-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-07",
+    slide: 7,
+    question: "まいにち　なんじに　おきますか？",
+    questionSrc: "/exam/slide-07-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-08",
+    slide: 8,
+    question: "にちようび　どこへ　いきますか？",
+    questionSrc: "/exam/slide-08-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-09",
+    slide: 9,
+    question: "けさ　なにを　のみましたか？",
+    questionSrc: "/exam/slide-09-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-10",
+    slide: 10,
+    question: "きょねんの　たんじょうびに　なにを　もらいましたか？",
+    questionSrc: "/exam/slide-10-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-11",
+    slide: 11,
+    question: "いつも　どこで　ひるごはんを　たべますか？",
+    questionSrc: "/exam/slide-11-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-12",
+    slide: 12,
+    question: "もう　ひるごはんを　たべましたか？",
+    questionSrc: "/exam/slide-12-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-13",
+    slide: 13,
+    question: "だいがくのべんきょうは　おもしろいですか。",
+    questionSrc: "/exam/slide-13-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-14",
+    slide: 14,
+    question: "にほんごは　どうですか。",
+    questionSrc: "/exam/slide-14-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-15",
+    slide: 15,
+    question: "どんなスポーツが　すきですか。",
+    questionSrc: "/exam/slide-15-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-16",
+    slide: 16,
+    question: "どうして　にほんごを　べんきょうしますか。",
+    questionSrc: "/exam/slide-16-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-17",
+    slide: 17,
+    question: "あなたのうちに　いぬが　いますか。",
+    questionSrc: "/exam/slide-17-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-18",
+    slide: 18,
+    question: "うちのちかくに　なにが　ありますか。",
+    questionSrc: "/exam/slide-18-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-19",
+    slide: 19,
+    question: "かぞくは　なんにんですか。",
+    questionSrc: "/exam/slide-19-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-20",
+    slide: 20,
+    question: "いままで　どのくらい　にほんごを　べんきょうしましたか。",
+    questionSrc: "/exam/slide-20-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-21",
+    slide: 21,
+    question: "あなたのくにで　どこが　いちばん　ゆうめいですか。",
+    questionSrc: "/exam/slide-21-question.wav",
+    modelAnswer: null,
+    modelSrc: null,
+  },
+  {
+    id: "slide-22",
+    slide: 22,
+    question: "[おはようございます]。おなまえは？",
+    questionSrc: "/exam/slide-02-question.wav",
+    modelAnswer: "[おはようございます]。わたしは[ケン]です。",
+    modelSrc: "/exam/slide-22-answer.wav",
+  },
+  {
+    id: "slide-23",
+    slide: 23,
+    question: "なんさいですか？",
+    questionSrc: "/exam/slide-03-question.wav",
+    modelAnswer: "[18さい]です。",
+    modelSrc: "/exam/slide-23-answer.wav",
+  },
+  {
+    id: "slide-24",
+    slide: 24,
+    question: "アメリカじんですか？",
+    questionSrc: "/exam/slide-04-question.wav",
+    modelAnswer: "いいえ、ほんこんじんです。",
+    modelSrc: "/exam/slide-24-answer.wav",
+  },
+  {
+    id: "slide-25",
+    slide: 25,
+    question: "それは　なんですか？",
+    questionSrc: "/exam/slide-05-question.wav",
+    modelAnswer: "これは　わたしの　ほんです。",
+    modelSrc: "/exam/slide-25-answer.wav",
+  },
+  {
+    id: "slide-26",
+    slide: 26,
+    question: "うちは　どちらですか？",
+    questionSrc: "/exam/slide-06-question.wav",
+    modelAnswer: "[シャーティーン]です。",
+    modelSrc: "/exam/slide-26-answer.wav",
+  },
+  {
+    id: "slide-27",
+    slide: 27,
+    question: "まいにち　なんじに　おきますか？",
+    questionSrc: "/exam/slide-07-question.wav",
+    modelAnswer: "まいにち　[7じ]に　おきます。",
+    modelSrc: "/exam/slide-27-answer.wav",
+  },
+  {
+    id: "slide-28",
+    slide: 28,
+    question: "にちようび　どこへ　いきますか？",
+    questionSrc: "/exam/slide-08-question.wav",
+    modelAnswer: "[スーパー]へ　いきます。",
+    modelSrc: "/exam/slide-28-answer.wav",
+  },
+  {
+    id: "slide-29",
+    slide: 29,
+    question: "けさ　なにを　のみましたか？",
+    questionSrc: "/exam/slide-09-question.wav",
+    modelAnswer: "コーヒーを　のみました。",
+    modelSrc: "/exam/slide-29-answer.wav",
+  },
+  {
+    id: "slide-30",
+    slide: 30,
+    question: "きょねんの　たんじょうびに　なにを　もらいましたか？",
+    questionSrc: "/exam/slide-10-question.wav",
+    modelAnswer: "[ともだち]に　[ほん]を　もらいました。",
+    modelSrc: "/exam/slide-30-answer.wav",
+  },
+  {
+    id: "slide-31",
+    slide: 31,
+    question: "いつも　どこで　ひるごはんを　たべますか？",
+    questionSrc: "/exam/slide-11-question.wav",
+    modelAnswer: "[がっこうの　しょくどう]で　たべます。",
+    modelSrc: "/exam/slide-31-answer.wav",
+  },
+  {
+    id: "slide-32",
+    slide: 32,
+    question: "もう　ひるごはんを　たべましたか？",
+    questionSrc: "/exam/slide-12-question.wav",
+    modelAnswer: "[はい、たべました]。/ [いいえ、まだです]。",
+    modelSrc: "/exam/slide-32-answer.wav",
+  },
+  {
+    id: "slide-33",
+    slide: 33,
+    question: "だいがくのべんきょうは　おもしろいですか。",
+    questionSrc: "/exam/slide-13-question.wav",
+    modelAnswer: "はい、[おもしろい]です。/ いいえ、[おもしろくない]です。",
+    modelSrc: "/exam/slide-33-answer.wav",
+  },
+  {
+    id: "slide-34",
+    slide: 34,
+    question: "にほんごは　どうですか。",
+    questionSrc: "/exam/slide-14-question.wav",
+    modelAnswer: "[むずかしいですが　たのしい]です。",
+    modelSrc: "/exam/slide-34-answer.wav",
+  },
+  {
+    id: "slide-35",
+    slide: 35,
+    question: "どんなスポーツが　すきですか。",
+    questionSrc: "/exam/slide-15-question.wav",
+    modelAnswer: "[サッカー]が　すきです。",
+    modelSrc: "/exam/slide-35-answer.wav",
+  },
+  {
+    id: "slide-36",
+    slide: 36,
+    question: "どうして　にほんごを　べんきょうしますか。",
+    questionSrc: "/exam/slide-16-question.wav",
+    modelAnswer: "[にほんのぶんかが　すきです]　から。",
+    modelSrc: "/exam/slide-36-answer.wav",
+  },
+  {
+    id: "slide-37",
+    slide: 37,
+    question: "あなたのうちに　いぬが　いますか。",
+    questionSrc: "/exam/slide-17-question.wav",
+    modelAnswer: "はい、います。/ いいえ、いません。",
+    modelSrc: "/exam/slide-37-answer.wav",
+  },
+  {
+    id: "slide-38",
+    slide: 38,
+    question: "うちのちかくに　なにが　ありますか。",
+    questionSrc: "/exam/slide-18-question.wav",
+    modelAnswer: "[スーパーと　こうえん]が　あります。",
+    modelSrc: "/exam/slide-38-answer.wav",
+  },
+  {
+    id: "slide-39",
+    slide: 39,
+    question: "かぞくは　なんにんですか。",
+    questionSrc: "/exam/slide-19-question.wav",
+    modelAnswer: "[5にん]です。",
+    modelSrc: "/exam/slide-39-answer.wav",
+  },
+  {
+    id: "slide-40",
+    slide: 40,
+    question: "いままで　どのくらい　にほんごを　べんきょうしましたか。",
+    questionSrc: "/exam/slide-20-question.wav",
+    modelAnswer: "[2かげつ]ぐらい　べんきょうしました。",
+    modelSrc: "/exam/slide-40-answer.wav",
+  },
+  {
+    id: "slide-41",
+    slide: 41,
+    question: "あなたのくにで　どこが　いちばん　ゆうめいですか。",
+    questionSrc: "/exam/slide-21-question.wav",
+    modelAnswer: "[ビクトリアピーク]が　いちばん　ゆうめいです。",
+    modelSrc: "/exam/slide-41-answer.wav",
+  },
+];
+
+export function practiceItems(): ExamItem[] {
+  const half = EXAM_ITEMS.length / 2;
+  return EXAM_ITEMS.slice(0, half).map((question, index) => {
+    const later = EXAM_ITEMS[half + index];
+    if (!later || later.question !== question.question) return question;
+    return {
+      ...question,
+      modelAnswer: later.modelAnswer,
+      modelSrc: later.modelSrc,
+    };
+  });
+}
+
+export function itemById(id: string): ExamItem | undefined {
+  return practiceItems().find((item) => item.id === id);
+}
+
+export function practiceSlots(): { id: string; hasModel: boolean }[] {
+  return practiceItems().map((item) => ({
+    id: item.id,
+    hasModel: Boolean(item.modelSrc),
+  }));
+}
